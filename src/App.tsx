@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Layout } from 'antd';
+import './App.css';
+import Navbar from './components/Navbar';
+import { Content } from 'antd/es/layout/layout';
+import Sider from 'antd/es/layout/Sider';
+import { CompassOutlined } from '@ant-design/icons';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Layout>
+        <Sider trigger={null} collapsible>
+          <div className="logo">
+            <CompassOutlined
+              style={{fontSize: '36px', color: '#fff'}}/>
+            <h1 className="title">NE Brews</h1>
+          </div>
+          <Navbar />
+        </Sider>
+        <Content
+          style={{
+            margin: '24px 16px',
+            padding: 24,
+            minHeight: 280,
+          }}
+        />
+      </Layout>
     </>
-  )
+  );
 }
 
 export default App
